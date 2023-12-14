@@ -1,2 +1,2 @@
-# GooderReads
+# BetterReads
 A better way to write Goodread's review.
