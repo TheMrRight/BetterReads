@@ -66,4 +66,3 @@ I ask myself that everyday...
 ~~Made~~ Going to make a Chrome (***Firefox is love***) extension, that will make GoodReads review formatting **BETTER**.
 
 **That's the plan...**
-
