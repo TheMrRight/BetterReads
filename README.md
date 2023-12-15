@@ -63,7 +63,7 @@ I ask myself that everyday...
 
 ## Why are you here?
 
-Made a Chrome (***Firefox is love***) extension, that will make GoodReads review formatting **BETTER**.
+~~Made~~ Going to make a Chrome (***Firefox is love***) extension, that will make GoodReads review formatting **BETTER**.
 
 **That's the plan...**
 
