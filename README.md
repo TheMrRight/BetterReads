@@ -63,6 +63,11 @@ I ask myself that everyday...
 
 ## Why are you here?
 
-~~Made~~ Going to make a Chrome (***Firefox is love***) extension, that will make GoodReads review formatting **BETTER**.
+~~Made~~ Going to make a Firefox (*other will come soon*) extension, that will make GoodReads review formatting **BETTER**.
 
-**That's the plan...**
+## What's next?
+
+- Add Link
+- Add Image
+- If a formating tag is selected and that format button is pressed. It will remove that format...
+- Make it Better.
