@@ -1,0 +1,31 @@
+#better_tools button {
+    background-color: #b9ac99;
+
+    /* min-width: 40px; */
+    min-height: 35px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #372213;
+    border-radius: 5px;
+
+    margin: auto 5px;
+
+    flex: 1 1 auto;
+}
+
+#better_tools {
+    height: 40px;
+
+    margin-bottom: 5px;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+
+    position: absolute !important;
+    top: 1px;
+    left: 1px;
+    z-index: 0;
+}

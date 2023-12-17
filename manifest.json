@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "BetterReads",
+  "version": "0.1",
+
+  "description": "A better way to read good- I mean GoodReads.",
+  "homepage_url": "https://github.com/TheMrRight/BetterReads",
+
+  "icons": {
+    "16": "icons/br-16.png",
+    "32": "icons/br-32.png",
+    "64": "icons/br-64.png",
+    "128": "icons/br-128.png"
+  },
+
+  "web_accessible_resources": [
+    "material_icon/author.svg",
+    "material_icon/bold.svg",
+    "material_icon/book.svg",
+    "material_icon/image.svg",
+    "material_icon/italic.svg",
+    "material_icon/link.svg",
+    "material_icon/paragraph.svg",
+    "material_icon/quote.svg",
+    "material_icon/spacing.svg",
+    "material_icon/spoiler.svg",
+    "material_icon/strikethrough.svg",
+    "material_icon/underlined.svg",
+
+    "styles.css"
+  ],
+
+  "permissions": [
+    "*://*.goodreads.com/review/edit/*",
+    "activeTab"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.goodreads.com/review/edit/*"],
+      "js": ["review.js"]
+    }
+  ]
+}
