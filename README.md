@@ -1,61 +1,22 @@
-# A better way to write Goodread's review
+<img title="Logo" src="./logo.jpg" alt="BetterReads Logo" data-align="center">
 
 ## Introduction
 
-So in [GoodReads](https://www.goodreads.com/) when you are writing a review/comment, you have two choices:
+[GoodReads](https://www.goodreads.com/). A place where people like looking at scribbles on a bunch of **paper**-thin pieces of processed wood. A place where you express your feeling about scribbles in plain text. Because, in order to be expressive... you need to know how to hack NASA with HTML.
 
-- Be **expressionless** (*plain text*).
-
-- Be **expressive**.
-
-How would you express your **WORDS OF WISDOM**, if you write plain text.
-**GoodReads** have a solution for that.
-
-## Introducing `HTML`
+## What is [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)?
 
 **GoodReads** allows HTML formatting. ***What's that?*** Google it...
 
-So, What's [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)?
+### GoodReads Formatting Tips
 
-It's a hard, very complex, impossible to learn **PROGRAMMING LANGUAGE**. Even Albert Einstein had no clue about it.
+Goodreads allows some html [formatting](https://help.goodreads.com/s/article/How-do-I-format-text-into-html-1553870934599).
+
+So, What's [that](https://www.merriam-webster.com/dictionary/that)?
+
+Now, **HTML** is a hard, very complex, impossible to learn **PROGRAMMING LANGUAGE**. That only computer nerds know how to speak. Even Albert Einstein had no clue about it.
 
 Now, you may ask. How would you (*not Albert Einstein*) format your **WORDS OF WISDOM**? Fear not, for I'm always Right. Even when I'm **rong**.
-
-## GoodReads Formatting Tips
-
-Goodreads allows some html formatting.
-
-- Well formed web URLs automatically get turned into links.
-
-- [link](https://www.goodreads.com/): `<a href="https://www.goodreads.com">my link text</a>`
-
-- [link to book](https://www.goodreads.com/search?q=The+Hitchhiker%27s+Guide+to+the+Galaxy): use the "add book/author" link or `[book: The Hitchhiker's Guide to the Galaxy]`
-
-- [link to author](https://www.goodreads.com/search?q=J.K.+Rowling): use the "add book/author" link or `[author: J.K. Rowling]`
-
-- image: `<img src="https://www.goodreads.com/image..." width="40" height="100" alt="description"/>` *(Width must be 0-400, Height must be 0-1000, alt is a description of the image. All three are optional, but recommended.)*
-
-- **bold text**: `<b>...</b>`
-
-- *italic text*: `<i>...</i>`
-
-- Underline text: `<u>...</u>`
-
-- ~~strike text~~: `<s>...</s>`
-
-- exact spacing: `<pre>...</pre>`
-
-- blockquote: `<blockquote>...</blockquote>`
-
-- paragraph: `<p>...</p>`
-
-- spoiler: `<spoiler>...</spoiler>`
-
-- **Note**: tags must be properly nested, example:
-✔ `<i><b>test</b></i>`
-❌ `<i><b>test</i></b>`
-
-*Yep, `CTRL + C` and `CTRL + V`*
 
 ## Why am I here?
 
@@ -63,7 +24,25 @@ I ask myself that everyday...
 
 ## Why are you here?
 
-~~Made~~ Going to make a Firefox (*other will come soon*) extension, that will make GoodReads review formatting **BETTER**.
+I don't know, you tell me.
+
+## What's **BetterReads**?
+
+*It will be* a browser extension that you can install on your microwave...
+
+> **Disclaimer**: Don't install BetterReads on your microwave. It may come to life, start reading books, gain knowledge and take over the world.
+
+## What does it do?
+
+It will surround the selected text with `<b>...</b>` if you want to blob the text (*and all the other formatting options*)...
+
+> How would you un-blob the text?
+
+**Time travel**. Have't made that part, I have a life... Ok that was a lie.
+
+### Underdevelopment
+
+For now, Only the cool people with [Firefox](https://www.mozilla.org/en-US/firefox/new/) (*other will come soon*) can **TEST** the extension, that will make GoodReads review formatting **BETTER**.
 
 ## What's next?
 
@@ -71,3 +50,5 @@ I ask myself that everyday...
 - Add Image
 - If a formating tag is selected and that format button is pressed. It will remove that format...
 - Make it Better.
+- In the far future, it will have a full MS word style word processor.
+
