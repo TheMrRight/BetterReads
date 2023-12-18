@@ -1,153 +1,142 @@
-function buttonAction() {
-    console.log(this.id);
-    console.log(review_textarea.value);
+const REVIEW_TEXTAREA = document.getElementById("review_review_usertext");
+var BETTER_TOOLS = document.getElementById("better_tools");
 
-    var prefix = "";
-    var suffix = "";
+const BUTTONS = [
+    "bold",
+    "italic",
+    "underlined",
+    "strikethrough",
+    "spacing",
+    "quote",
+    "paragraph",
+    "spoiler",
+    "link",
+    "image",
+];
 
-    switch (this.id) {
-        case "bold":
-            prefix = "<b>";
-            suffix = "</b>";
-            break;
+// console.info("Running.");
 
-        case "italic":
-            prefix = "<i>";
-            suffix = "</i>";
-            break;
+if (document.getElementById("better_tools") == null) {
+    // console.info("Making Toolbar...");
 
-        case "underlined":
-            prefix = "<u>";
-            suffix = "</u>";
-            break;
+    addStyle();
 
-        case "strikethrough":
-            prefix = "<s>";
-            suffix = "</s>";
-            break;
+    BETTER_TOOLS = make_toolBar();
+    document.body.appendChild(BETTER_TOOLS);
 
-        case "spacing":
-            prefix = "<pre>";
-            suffix = "</pre>";
-            break;
+    const spacer = document.createElement("div");
+    spacer.style.minHeight = BETTER_TOOLS.offsetHeight + "px";
+    REVIEW_TEXTAREA.parentNode.insertBefore(spacer, REVIEW_TEXTAREA);
 
-        case "quote":
-            prefix = "<blockquote>";
-            suffix = "</blockquote>";
-            break;
-
-        case "paragraph":
-            prefix = "<p>";
-            suffix = "</p>";
-            break;
-
-        case "spoiler":
-            prefix = "<spoiler>";
-            suffix = "</spoiler>";
-            break;
-    }
-
-    var selectionStart = review_textarea.selectionStart;
-    var selectionEnd = review_textarea.selectionEnd;
-    var selectedText = review_textarea.value.substring(
-        selectionStart,
-        selectionEnd
-    );
-
-    if (selectedText.slice(-1) == " ") {
-        selectionEnd = review_textarea.selectionEnd - 1;
-        selectedText = review_textarea.value.substring(
-            selectionStart,
-            selectionEnd
-        );
-    }
-
-    if (selectionStart !== selectionEnd && selectedText.length > 0) {
-        const newText = prefix + selectedText + suffix;
-
-        review_textarea.value =
-            review_textarea.value.substring(0, selectionStart) +
-            newText +
-            review_textarea.value.substring(selectionEnd);
-
-        review_textarea.selectionStart = selectionStart + prefix.length;
-        review_textarea.selectionEnd =
-            selectionStart +
-            prefix.length +
-            selectedText.length +
-            suffix.length;
-    }
+    resizeToolbar();
 }
 
+// console.log(BETTER_TOOLS);
+
 function make_toolBar() {
-    var toolBar = document.createElement("div");
-    toolBar.id = "better_tools";
+    var toolBar = document.createElement("div");
+    toolBar.id = "better_tools";
 
-    var buttons = [
-        "bold",
-        "italic",
-        "underlined",
-        "strikethrough",
-        "spacing",
-        "quote",
-        "paragraph",
-        "spoiler",
-        "link",
-        "image",
-    ];
+    for (let i = 0; i < BUTTONS.length; i++) {
+        var button = document.createElement("button");
+        button.id = BUTTONS[i];
+        button.innerHTML = `<img src="${browser.runtime.getURL(
+            "material_icon/" + BUTTONS[i] + ".svg"
+        )}" alt="${BUTTONS[i]}">`;
 
-    for (let i = 0; i < buttons.length; i++) {
-        var button = document.createElement("button");
-        button.id = buttons[i];
-        button.innerHTML = `<img src="${browser.runtime.getURL(
-            "material_icon/" + buttons[i] + ".svg"
-        )}" alt="${buttons[i]}">`;
+        button.onclick = buttonAction;
+        toolBar.appendChild(button);
+    }
 
-        button.onclick = buttonAction;
-        toolBar.appendChild(button);
-    }
+    return toolBar;
+}
 
-    return toolBar;
+function buttonAction() {
+    var prefix = "";
+    var suffix = "";
+
+    switch (this.id) {
+        case "bold":
+            (prefix = "<b>"), (suffix = "</b>");
+            break;
+
+        case "italic":
+            (prefix = "<i>"), (suffix = "</i>");
+            break;
+
+        case "underlined":
+            (prefix = "<u>"), (suffix = "</u>");
+            break;
+
+        case "strikethrough":
+            (prefix = "<s>"), (suffix = "</s>");
+            break;
+
+        case "spacing":
+            (prefix = "<pre>"), (suffix = "</pre>");
+            break;
+
+        case "quote":
+            (prefix = "<blockquote>"), (suffix = "</blockquote>");
+            break;
+
+        case "paragraph":
+            (prefix = "<p>"), (suffix = "</p>");
+            break;
+
+        case "spoiler":
+            (prefix = "<spoiler>"), (suffix = "</spoiler>");
+            break;
+    }
+
+    var selectionStart = REVIEW_TEXTAREA.selectionStart;
+    var selectionEnd = REVIEW_TEXTAREA.selectionEnd;
+    var selectedText = REVIEW_TEXTAREA.value.substring(
+        selectionStart,
+        selectionEnd
+    );
+
+    if (selectedText.slice(-1) == " ") {
+        selectionEnd = REVIEW_TEXTAREA.selectionEnd - 1;
+        selectedText = REVIEW_TEXTAREA.value.substring(
+            selectionStart,
+            selectionEnd
+        );
+    }
+
+    if (selectionStart !== selectionEnd && selectedText.length > 0) {
+        const newText = prefix + selectedText + suffix;
+
+        REVIEW_TEXTAREA.value =
+            REVIEW_TEXTAREA.value.substring(0, selectionStart) +
+            newText +
+            REVIEW_TEXTAREA.value.substring(selectionEnd);
+
+        REVIEW_TEXTAREA.selectionStart = selectionStart + prefix.length;
+        REVIEW_TEXTAREA.selectionEnd =
+            selectionStart +
+            prefix.length +
+            selectedText.length +
+            suffix.length;
+    }
 }
 
 function addStyle() {
-    const linkStyle = document.createElement("link");
-    linkStyle.setAttribute("rel", "stylesheet");
-    linkStyle.setAttribute("href", browser.runtime.getURL("styles.css"));
-    document.head.appendChild(linkStyle);
+    const linkStyle = document.createElement("link");
+    linkStyle.setAttribute("rel", "stylesheet");
+    linkStyle.setAttribute("href", browser.runtime.getURL("styles.css"));
+    document.head.appendChild(linkStyle);
 }
 
-function RUN() {
-    console.info("Running");
-
-    globalThis.review_textarea = document.getElementById(
-        "review_review_usertext"
-    );
-
-    var toolBar = document.getElementById("better_tools");
-    if (toolBar == null) {
-        console.info("Making Toolbar");
-
-        addStyle();
-        var toolBar = make_toolBar();
-        toolBar.style.position = "absolute !important";
-        toolBar.style.width = review_textarea.offsetWidth + "px";
-        toolBar.style.top = review_textarea.offsetTop + "px";
-        toolBar.style.left = review_textarea.offsetLeft + "px";
-
-        const spacer = document.createElement("div");
-        spacer.style.minHeight = "40px";
-
-        review_textarea.parentNode.insertBefore(spacer, review_textarea);
-        document.body.appendChild(toolBar);
-    }
-
-    console.log(toolBar);
-    console.info("End");
+function resizeToolbar() {
+    console.log("Resizing");
+    if (document.getElementById("better_tools") != null) {
+        console.log("Sizing");
+        BETTER_TOOLS.style.width = REVIEW_TEXTAREA.offsetWidth + "px";
+        BETTER_TOOLS.style.top = (REVIEW_TEXTAREA.offsetTop - BETTER_TOOLS.offsetHeight) + "px";
+        BETTER_TOOLS.style.left = REVIEW_TEXTAREA.offsetLeft + "px";
+    }
 }
 
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", RUN);
-} else {
-    RUN();
-}
+window.addEventListener("resize", resizeToolbar);
+window.addEventListener("onorientationchange", resizeToolbar);
